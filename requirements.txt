@@ -1,0 +1,5 @@
+selenium
+pytest
+pytest-xdist              # For parallel test execution
+allure-pytest             # For Allure report generation
+configparser              # If you're using config.ini
