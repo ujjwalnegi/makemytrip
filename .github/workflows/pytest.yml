@@ -27,7 +27,7 @@ jobs:
           pip install pytest
 
       - name: Run Pytest
-        run: pytest tests/
+        run: pytest Test_Cases/
 
 
       - name: Send Email Notification
