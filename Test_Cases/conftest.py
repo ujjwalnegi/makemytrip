@@ -35,10 +35,21 @@ def setup(request):
     driver.maximize_window()
     driver.get(base_url)
 
-    #clear session and local storage
+    WebDriverWait(driver, 10).until(
+        lambda d: d.execute_script("return document.readyState") == "complete"
+    )
+
     driver.delete_all_cookies()
-    driver.execute_script("window.localStorage.clear();")
-    driver.execute_script("window.sessionStorage.clear();")
+    try:
+        driver.execute_script("window.localStorage.clear();")
+        driver.execute_script("window.sessionStorage.clear();")
+    except Exception as e:
+        print("Warning: Could not clear local/session storage:", e)
+
+    #clear session and local storage
+    # driver.delete_all_cookies()
+    # driver.execute_script("window.localStorage.clear();")
+    # driver.execute_script("window.sessionStorage.clear();")
 
     request.cls.driver = driver
     request.cls.wait = WebDriverWait(driver,10)
