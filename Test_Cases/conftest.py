@@ -1,4 +1,5 @@
 import configparser
+import os
 
 import pytest
 from selenium import webdriver
@@ -23,6 +24,11 @@ def setup(request):
     options.add_argument("--start-maximized")
     options.add_argument("--disable-cache")
     options.add_argument("--disable-application-cache")
+    if os.getenv("CI"):
+        options.add_argument("--headless")
+        options.add_argument("--disable-gpu")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
 
     #create driver with custom options
     driver = webdriver.Chrome(options=options)
