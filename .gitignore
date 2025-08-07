@@ -1,6 +1,16 @@
-venv/
+# Python
 __pycache__/
-*.pyc
-allure-results/
+*.py[cod]
+*.egg-info/
+*.log
+
+# Virtual env
+venv/
+
+# VS Code / IDE
+.vscode/
+.idea/
+
+# Allure reports
 allure-report/
-.env
+allure-results/
