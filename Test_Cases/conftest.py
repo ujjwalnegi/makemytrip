@@ -8,7 +8,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 def get_config():
     config = configparser.ConfigParser()
-    config.read('configurations/config.ini')
+    config.read('Configurations/config.ini')
     return config
 
 
